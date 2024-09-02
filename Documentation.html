@@ -1,11 +1,12 @@
-<html>
- <head>
-  <title>
-   Documentation
-  </title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <style>
-   body {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
             font-family: Arial, sans-serif;
             background-color: #e0e0e0;
             margin: 0;
@@ -25,6 +26,7 @@
         }
         .header img {
             height: 80px;
+            alt: "Government of India official logo";
         }
         .header div {
             text-align: left;
@@ -92,6 +94,8 @@
             width: 200px;
             text-align: right;
             margin-right: 10px;
+            color: #000;
+            font-weight: bold;
         }
         .upload-section div button {
             background-color: #ff6600;
@@ -110,6 +114,7 @@
             font-size: 14px;
             color: #000;
             margin-left: 10px;
+            font-weight: bold;
         }
         .save-button {
             margin-top: 30px;
@@ -123,136 +128,122 @@
             border-radius: 5px;
             cursor: pointer;
         }
-  </style>
- </head>
- <body>
-  <div class="header">
-   <img alt="Government of India Emblem" height="80" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-BVbpSZmLndA7MfHIxv2ahIKS/user-IBY8IaMXtVn7IVIdZeyvjx16/img-nuis9tgLNaqav5nKbTJEgOUz.png?st=2024-09-02T07%3A56%3A06Z&amp;se=2024-09-02T09%3A56%3A06Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-02T04%3A12%3A48Z&amp;ske=2024-09-03T04%3A12%3A48Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=0d2S4RXVbqe4%2BLitB%2BA6eV0X/tA6PLK58RnVGv0AGvE%3D" width="80"/>
-   <div>
-    <h1>
-     भारत सरकार
-    </h1>
-    <p>
-     GOVERNMENT OF INDIA
-    </p>
-   </div>
-  </div>
-  <div class="nav">
-   <a href="#">
-    HOME
-   </a>
-   <a href="#">
-    SCHOLAR SHIPS
-   </a>
-   <a class="active" href="#">
-    DOCUMENTATION STATUS
-   </a>
-   <a href="#">
-    ABOUT US
-   </a>
-  </div>
-  <div class="content">
-   <h2>
-    <i class="fas fa-file-alt">
-    </i>
-    Documentation
-   </h2>
-   <div class="upload-section">
-    <div>
-     <span>
-      Aadhar card:
-     </span>
-     <button>
-      <i class="fas fa-upload">
-      </i>
-      Upload
-     </button>
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img alt="Government of India official logo" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Government_of_India_logo.svg"/>
+        <div>
+            <h1>भारत सरकार</h1>
+            <p>GOVERNMENT OF INDIA</p>
+        </div>
     </div>
-    <div>
-     <span>
-      10_th MarkMemo:
-     </span>
-     <button>
-      <i class="fas fa-upload">
-      </i>
-      Upload
-     </button>
+    <div class="nav">
+        <a href="#">HOME</a>
+        <a href="#">SCHOLARSHIPS</a>
+        <a class="active" href="#">DOCUMENTATION STATUS</a>
+        <a href="#">ABOUT US</a>
     </div>
-    <div>
-     <span>
-      12_th marks memo:
-     </span>
-     <button>
-      <i class="fas fa-upload">
-      </i>
-      Upload
-     </button>
+    <div class="content">
+        <h2><i class="fas fa-file-alt"></i> Documentation</h2>
+        <div class="upload-section">
+            <div>
+                <span>Aadhar card:</span>
+                <input type="file" id="aadhar-card" style="display:none;">
+                <button onclick="document.getElementById('aadhar-card').click();"><i class="fas fa-upload"></i> Upload</button>
+            </div>
+            <div>
+                <span>10th Class MarkMemo:</span>
+                <input type="file" id="markmemo" style="display:none;">
+                <button onclick="document.getElementById('markmemo').click();"><i class="fas fa-upload"></i> Upload</button>
+              
+            </div>
+            <div>
+                <span>12th Class marks memo:</span>
+                <input type="file" id="marks-memo" style="display:none;">
+                <button onclick="document.getElementById('marks-memo').click();"><i class="fas fa-upload"></i> Upload</button>
+                
+            </div>
+            <div>
+                <span>Income Certificate:</span>
+                <input type="file" id="income-certificate" style="display:none;">
+                <button onclick="document.getElementById('income-certificate').click();"><i class="fas fa-upload"></i> Upload</button>
+           
+            </div>
+            <div>
+                <span>EWS Certificate:</span>
+                <input type="file" id="EWS Certificate" style="display:none;">
+                <button onclick="document.getElementById('EWS Certificate').click();"><i class="fas fa-upload"></i> Upload</button>
+                <span class="optional">(Optional)</span>
+            </div>
+            <div>
+                <span>Pan card:</span>
+                <input type="file" id="Pan card" style="display:none;">
+                <button onclick="document.getElementById('Pan card').click();"><i class="fas fa-upload"></i> Upload</button>
+                <span class="optional">(Optional)</span>
+            </div>
+            <div>
+                <span>Bank Passbook:</span>
+                <input type="file" id="Bank Book" style="display:none;">
+                <button onclick="document.getElementById('Bank Book').click();"><i class="fas fa-upload"></i> Upload</button>
+                <span class="optional">(Front Page)</span>
+            </div>
+            <div>
+                <span>Passport Size Photo:</span>
+                <input type="file" id="Passport Size Photo" style="display:none;">
+                <button onclick="document.getElementById('Passport Size Photo').click();"><i class="fas fa-upload"></i> Upload</button>
+            </div>
+        </div>
+        <div class="save-button">
+            <button>Save Changes</button>
+        </div>
     </div>
-    <div>
-     <span>
-      Income Certificate:
-     </span>
-     <button>
-      <i class="fas fa-upload">
-      </i>
-      Upload
-     </button>
-    </div>
-    <div>
-     <span>
-      EWS CERTIFICATE:
-     </span>
-     <button>
-      <i class="fas fa-upload">
-      </i>
-      Upload
-     </button>
-     <span class="optional">
-      (Optional)
-     </span>
-    </div>
-    <div>
-     <span>
-      Pan card :
-     </span>
-     <button>
-      <i class="fas fa-upload">
-      </i>
-      Upload
-     </button>
-     <span class="optional">
-      (Optional)
-     </span>
-    </div>
-    <div>
-     <span>
-      Bank Passbook :
-     </span>
-     <button>
-      <i class="fas fa-upload">
-      </i>
-      Upload
-     </button>
-     <span class="optional">
-      (Front Page)
-     </span>
-    </div>
-    <div>
-     <span>
-      Passport Size Photo:
-     </span>
-     <button>
-      <i class="fas fa-upload">
-      </i>
-      Upload
-     </button>
-    </div>
-   </div>
-   <div class="save-button">
-    <button>
-     Save Changes
-    </button>
-   </div>
-  </div>
- </body>
+
+    <script>
+        function uploadFiles() {
+            // Get all file input elements
+            const files = {
+                'aadhar-card': document.getElementById('aadhar-card').files[0],
+                'markmemo': document.getElementById('markmemo').files[0],
+                'marks-memo': document.getElementById('marks-memo').files[0],
+                'income-certificate': document.getElementById('income-certificate').files[0]
+            };
+
+            // Create a FormData object
+            const formData = new FormData();
+
+            // Append files to FormData
+            for (const key in files) {
+                if (files[key]) {
+                    formData.append(key, files[key]);
+                }
+            }
+
+            // Create a new XMLHttpRequest object
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/upload', true); // Change '/upload' to your server endpoint
+
+            // Optional: Track progress
+            xhr.upload.addEventListener('progress', (event) => {
+                if (event.lengthComputable) {
+                    const percentComplete = (event.loaded / event.total) * 100;
+                    console.log(`Upload progress: ${percentComplete}%`);
+                }
+            });
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        alert('Files uploaded successfully!');
+                    } else {
+                        alert('Failed to upload files.');
+                    }
+                }
+            };
+
+            // Send the FormData object
+            xhr.send(formData);
+        }
+    </script>
+</body>
 </html>
