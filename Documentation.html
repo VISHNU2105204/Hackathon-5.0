@@ -14,8 +14,8 @@
             text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             height: 100vh;
+            overflow: auto;
         }
         .header {
             display: flex;
@@ -23,10 +23,10 @@
             align-items: center;
             padding: 10px 50px;
             background-color: #e0e0e0;
+            border-bottom: 1px solid #000;
         }
         .header img {
             height: 80px;
-            alt: "Government of India official logo";
         }
         .header div {
             text-align: left;
@@ -67,6 +67,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            overflow: auto;
         }
         .content h2 {
             font-size: 36px;
@@ -80,20 +81,21 @@
         .upload-section {
             margin-top: 30px;
             text-align: left;
-            display: inline-block;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
         }
         .upload-section div {
-            margin: 10px 0;
-            font-size: 18px;
-            color: #fff;
             display: flex;
             align-items: center;
+            gap: 10px;
+            flex: 1;
+            max-width: 500px; /* Adjust to fit your design */
         }
         .upload-section div span {
-            display: inline-block;
             width: 200px;
             text-align: right;
-            margin-right: 10px;
             color: #000;
             font-weight: bold;
         }
@@ -113,7 +115,6 @@
         .upload-section div .optional {
             font-size: 14px;
             color: #000;
-            margin-left: 10px;
             font-weight: bold;
         }
         .save-button {
@@ -128,11 +129,23 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        .Instructions {
+            background-color: green;
+            opacity: 0.6;
+            color: white;
+            font-weight: bolder;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .Instructions p {
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <img alt="Government of India official logo" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Government_of_India_logo.svg"/>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Government_of_India_logo.svg" alt="Government of India official logo"/>
         <div>
             <h1>भारत सरकार</h1>
             <p>GOVERNMENT OF INDIA</p>
@@ -146,6 +159,13 @@
     </div>
     <div class="content">
         <h2><i class="fas fa-file-alt"></i> Documentation</h2>
+        <div class="Instructions">
+            <p style="color: blue; font-size: 30px; font-style: italic;">INSTRUCTIONS:</p>
+            <p>Kindly check your Upload PDF Must be below 5KB.</p>
+            <p>Documents should be authorized.</p>
+            <p>Not to forget upload only first page of your Bank Passbook.</p>
+            <p>Check whether your mobile number is linked with Aadhaar card or not.</p>
+        </div>
         <div class="upload-section">
             <div>
                 <span>Aadhar card:</span>
@@ -156,37 +176,31 @@
                 <span>10th Class MarkMemo:</span>
                 <input type="file" id="markmemo" style="display:none;">
                 <button onclick="document.getElementById('markmemo').click();"><i class="fas fa-upload"></i> Upload</button>
-              
             </div>
             <div>
                 <span>12th Class marks memo:</span>
                 <input type="file" id="marks-memo" style="display:none;">
                 <button onclick="document.getElementById('marks-memo').click();"><i class="fas fa-upload"></i> Upload</button>
-                
             </div>
             <div>
                 <span>Income Certificate:</span>
                 <input type="file" id="income-certificate" style="display:none;">
                 <button onclick="document.getElementById('income-certificate').click();"><i class="fas fa-upload"></i> Upload</button>
-           
             </div>
             <div>
                 <span>EWS Certificate:</span>
                 <input type="file" id="EWS Certificate" style="display:none;">
                 <button onclick="document.getElementById('EWS Certificate').click();"><i class="fas fa-upload"></i> Upload</button>
-                <span class="optional">(Optional)</span>
             </div>
             <div>
                 <span>Pan card:</span>
                 <input type="file" id="Pan card" style="display:none;">
                 <button onclick="document.getElementById('Pan card').click();"><i class="fas fa-upload"></i> Upload</button>
-                <span class="optional">(Optional)</span>
             </div>
             <div>
                 <span>Bank Passbook:</span>
                 <input type="file" id="Bank Book" style="display:none;">
                 <button onclick="document.getElementById('Bank Book').click();"><i class="fas fa-upload"></i> Upload</button>
-                <span class="optional">(Front Page)</span>
             </div>
             <div>
                 <span>Passport Size Photo:</span>
@@ -221,29 +235,3 @@
 
             // Create a new XMLHttpRequest object
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', '/upload', true); // Change '/upload' to your server endpoint
-
-            // Optional: Track progress
-            xhr.upload.addEventListener('progress', (event) => {
-                if (event.lengthComputable) {
-                    const percentComplete = (event.loaded / event.total) * 100;
-                    console.log(`Upload progress: ${percentComplete}%`);
-                }
-            });
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        alert('Files uploaded successfully!');
-                    } else {
-                        alert('Failed to upload files.');
-                    }
-                }
-            };
-
-            // Send the FormData object
-            xhr.send(formData);
-        }
-    </script>
-</body>
-</html>
