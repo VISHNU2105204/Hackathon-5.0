@@ -1,12 +1,10 @@
 <html>
- <head>
-  <title>
-   Login - Scholars Hub
-  </title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <style>
-   body{
-           height: 100%;
+<head>
+    <title>Login - Scholars Hub</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <style>
+        body{
+            height: 100%;
             margin: 0;
             font-family: Arial, sans-serif;
             display: flex;
@@ -58,6 +56,7 @@
             top: 50%;
             transform: translateY(-50%);
             color: #333;
+            cursor: pointer;
         }
         .input-container label {
             position: absolute;
@@ -100,48 +99,75 @@
         }
         body {
             background-image: url('https://www.nshm.com/wp-content/uploads/2024/06/Scholarship.webp');
-             background-repeat: no-repeat;
-             background-attachment: fixed;
-             background-size: 100% 100%; 
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%; 
+        }
+    </style>
+</head>
+<body>
+    <h1 class="main-heading">
+        <img alt="Government of India Logo" height="180" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Government_of_India_logo.svg" width="180"/>
+        SCHOLARS HUB
+    </h1>
+    <div class="container">
+        <div class="header"></div>
+        <h2 style="color:#00bfff;">Login</h2>
+        <div class="input-container">
+            <label for="email">
+                <span style="font-weight: bold;">EMAIL</span>
+            </label>
+            <input id="email" placeholder="Enter your email" type="email"/>
+        </div> &nbsp;
+        <div class="input-container">
+            <label for="password">
+                <span style="font-weight: bold;">PASSWORD</span>
+            </label>
+            <input id="password" placeholder="Enter your password" type="password"/>
+            <i class="fas fa-eye" id="togglePassword" style="right: 10px; left: auto;"></i>
+        </div>
+        <button class="btn" id="loginBtn">Login</button>
+        <a class="forgot-password" href="#">
+            <span style="color: red;"><b> Forgot Password?</b></span> 
+        </a>
+        <a class="signup" href="#">
+            <span style="color: black;"><b>Not a Member?</b></span> Sign Up
+        </a>
+    </div>
+    <script>
+        // Toggle Password Visibility
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            const passwordField = document.getElementById('password');
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        // Handle Login Button Click
+        document.getElementById('loginBtn').addEventListener('click', function () {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (email === '' || password === '') {
+                alert('Please fill in both fields.');
+                return;
             }
-  </style>
- </head>
- <body>
-    
-  <h1 class="main-heading">
-    <img alt="Government of India Logo" height="180" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Government_of_India_logo.svg" width="180"/>
-   SCHOLARS HUB
-  </h1>
-  <div class="container">
-   <div class="header">
-   </div>
-   <h2 style="color:#00bfff;"> 
-    Login
-   </h2>
-   <div class="input-container">
-    <label for="email">
-     EMAIL
-    </label>
-    <input id="email" placeholder="Enter your email" type="email"/>
-   </div> &nbsp;
-   <div class="input-container">
-    
-    <label for="password">
-     PASSWORD
-    </label>
-    <input id="password" placeholder="Enter your password" type="password"/>
-    <i class="fas fa-eye" style="right: 10px; left: auto;">
-    </i>
-   </div>
-   <button class="btn">
-    Login
-   </button>
-   <a class="forgot-password" href="#">
-   <span style="color: red;"><b> Forgot Password?</b> </span> 
-   </a>
-   <a class="signup" href="#">
-     <span style="color: #333; "><b>Not a Member?</b></span> Sign Up
-   </a>
-  </div>
- </body>
+
+            // In a real application, you would validate credentials against the database here
+            alert('Login successful!');
+        });
+
+        // Handle Forgot Password Link Click
+        document.querySelector('.forgot-password').addEventListener('click', function (event) {
+            event.preventDefault();
+            alert('Redirecting to the"Forgot Password" Page.');
+        });
+
+        // Handle Sign Up Link Click
+        document.querySelector('.signup').addEventListener('click', function (event) {
+            event.preventDefault();
+            alert('Redirecting to the Sign Up page.');
+        });
+    </script>
+</body>
 </html>
