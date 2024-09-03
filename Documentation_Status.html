@@ -1,8 +1,6 @@
 <html>
  <head>
-  <title>
-   Documentation Status
-  </title>
+  <title>Documentation Status</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <style>
    body {
@@ -95,6 +93,9 @@
             font-size: 18px;
             color: #000;
         }
+        .timeline-item.inactive i {
+            background-color: #bbb;
+        }
   </style>
  </head>
  <body>
@@ -104,69 +105,61 @@
    </div>
   </div>
   <div class="nav">
-   <a href="#">
-    HOME
-   </a>
-   <a href="#">
-    SCHOLAR SHIPS
-   </a>
-   <a class="active" href="#">
-    DOCUMENTATION STATUS
-   </a>
-   <a href="#">
-    ABOUT US
-   </a>
+   <a href="#">HOME</a>
+   <a href="#">SCHOLAR SHIPS</a>
+   <a class="active" href="#">DOCUMENTATION STATUS</a>
+   <a href="#">ABOUT US</a>
   </div>
   <div class="content">
    <h1>
-    <i class="fas fa-file-alt">
-    </i>
+    <i class="fas fa-file-alt"></i>
     Documentation Status
    </h1>
    <div class="timeline">
-    <div class="timeline-item">
-     <i class="fas fa-check">
-     </i>
-     <span>
-      Submission Pending.
-     </span>
+    <div class="timeline-item inactive">
+     <i class="fas fa-check"></i>
+     <span>Submission Pending.</span>
     </div>
-    <div class="timeline-item">
-     <i class="fas fa-check">
-     </i>
-     <span>
-      Documents Submitted.
-     </span>
+    <div class="timeline-item inactive">
+     <i class="fas fa-check"></i>
+     <span>Documents Submitted.</span>
     </div>
-    <div class="timeline-item">
-     <i class="fas fa-check">
-     </i>
-     <span>
-      Verification Started.
-     </span>
+    <div class="timeline-item inactive">
+     <i class="fas fa-check"></i>
+     <span>Verification Started.</span>
     </div>
-    <div class="timeline-item">
-     <i class="fas fa-check">
-     </i>
-     <span>
-      Verification Completed.
-     </span>
+    <div class="timeline-item inactive">
+     <i class="fas fa-check"></i>
+     <span>Verification Completed.</span>
     </div>
-    <div class="timeline-item">
-     <i class="fas fa-check">
-     </i>
-     <span>
-      Eligible and Approved.
-     </span>
+    <div class="timeline-item inactive">
+     <i class="fas fa-check"></i>
+     <span>Eligible and Approved.</span>
     </div>
-    <div class="timeline-item">
-     <i class="fas fa-check">
-     </i>
-     <span>
-      Scholarship Funded.
-     </span>
+    <div class="timeline-item inactive">
+     <i class="fas fa-check"></i>
+     <span>Scholarship Funded.</span>
     </div>
    </div>
   </div>
+
+  <script>
+    function updateTimeline() {
+        const items = document.querySelectorAll('.timeline-item');
+        let currentIndex = 0;
+
+        function activateNextItem() {
+            if (currentIndex < items.length) {
+                items[currentIndex].classList.remove('inactive');
+                currentIndex++;
+                setTimeout(activateNextItem, 2000); // 2-second delay between each status update
+            }
+        }
+
+        activateNextItem();
+    }
+
+    window.onload = updateTimeline;
+  </script>
  </body>
 </html>
