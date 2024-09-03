@@ -158,5 +158,46 @@
     </form>
    </div>
   </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // Form validation
+    const form = document.querySelector('.contact form');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Validate form fields
+        const name = form.elements['name'].value.trim();
+        const email = form.elements['email'].value.trim();
+        const subject = form.elements['subject'].value.trim();
+        const message = form.elements['message'].value.trim();
+
+        if (!name || !email || !subject || !message) {
+            alert('Please fill out all fields.');
+            return;
+        }
+
+        // Basic email validation
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailPattern.test(email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
+        // Submit form if validation passes
+        alert('Form submitted successfully!');
+        form.reset(); // Reset the form fields
+    });
+
+    // Active navigation link highlight
+    const navLinks = document.querySelectorAll('.nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            navLinks.forEach(link => link.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+});
+
+  </script>
  </body>
 </html>
